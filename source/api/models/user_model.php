@@ -48,7 +48,24 @@ class UserModel extends BaseModel
         return $result->fetch_object($this->ModelName);
     }
 
+    // public function getUserById($userId) 
+    // {
+    //     // Avoid * to improve performance. Select from the specific fields.
+    //     $query = "SELECT users.id, users.username, users.isAdmin, tokens.token FROM users JOIN tokens ON users.id = tokens.userID WHERE token = '$token' ";
+    //     $result = $this->db_connection->query($query);
 
+    //     error_log("getUserByToken SQL: $query");
+        
+    //     if (!$result) {
+    //         throw new Exception("Database error: {$this->db_connection->error}", 500);            
+    //     }
+
+    //     if ($result->num_rows != 1) {
+    //         throw new Exception('User does not exist', 400);
+    //     }
+        
+    //     return $result->fetch_object($this->ModelName);
+    // }
 
     public function storeToken($userId, $token){
     	$now = date("Y-m-d H:i:s");
