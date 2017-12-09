@@ -27,8 +27,8 @@ class OrderController
 
     }
 
-    public function getAllOrders($userId) {
-        return $this->model->getAllOrders($userId);
+    public function getAllOrders($token) {
+        return $this->model->getAllOrders($token);
     }
     
 }

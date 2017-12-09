@@ -26,14 +26,16 @@ class OrderModel extends BaseModel
 
 
    /**
-     * getAllOrders will retrieve all the records from the databse from $TableName
+     * getAllOrders will retrieve all the records from the database from $TableName
      */
     public function getAllOrders($userId) {
 
-        var_dump($userId);
+        getUserByToken;
 
-        $items = array();
-        $query = "SELECT * FROM orders WHERE userId = $userId";
+        
+
+        $orders = array();
+        $query = "SELECT * from orders where userId = '$id')";
         $result = $this->db_connection->query($query);
 
         error_log("Query for getAllOrders is: $query");
@@ -42,11 +44,11 @@ class OrderModel extends BaseModel
             throw new Exception("Database error: {$this->db_connection->error}", 500);
         }
         
-        while ($item = $result->fetch_object($this->ModelName)) {
-            $items[] = $item;
+        while ($order = $result->fetch_object($this->ModelName)) {
+            $orders[] = $order;
         }
 
-        return $items;
+        return $orders;
     }
 
 

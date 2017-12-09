@@ -82,4 +82,13 @@ class UserController
 
         return $this->model->getUserByToken($token);
     }
+
+
+    // public function getUserById($headers) {
+    //     $this->verify($headers);
+
+    //     $token = explode(' ', $headers['Authorization'])[1];
+
+    //     return $this->model->getUserById($userId);
+    // }
 }

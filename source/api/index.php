@@ -178,7 +178,7 @@ try {
         $order_controller = new OrderController($order_model);
 
         if ($method == 'GET' ) {
-            $data = $order_controller->getAllOrders($userId);
+            $data = $order_controller->getAllOrders($user);
         }
 
         break;
