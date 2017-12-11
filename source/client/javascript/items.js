@@ -116,6 +116,8 @@ function createNewItem() {
         });
     });
 
+}
+
 function showNewUserForm() {
     hideAllSections();
     var htmlContainer = showSection('form_user_container');
@@ -139,7 +141,7 @@ function createNewUser() {
         username: name,
         password: pass,
         email: email,
-        is admin: admin,
+        isAdmin: admin,
     }
 
     httpRequest('POST', '/users/', data, function (newRecord) {
