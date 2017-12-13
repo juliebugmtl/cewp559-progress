@@ -9,5 +9,6 @@ CREATE TABLE `items` (
   `description` text,
   `price` float DEFAULT NULL,
   `datetimeAdded` datetime DEFAULT CURRENT_TIMESTAMP,
+  FULLTEXT(name, description),
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

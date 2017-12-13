@@ -157,8 +157,6 @@ try {
 
         if ($method == 'POST') {
 
-            // TODO: The rest of the payment code should go here.
-
             $cart = $cart_controller->getCart($user->id);
             $order = $order_controller->newOrder($user->id, $cart);
             $order_controller->createOrderItems($order->id, $cart);
