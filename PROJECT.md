@@ -39,7 +39,7 @@ The final project should have the following sections:
 
 ## Front-End ##
 
-The front end of the application could be eaither of the following choices:
+The front end of the application could be either of the following choices:
 
 ### 1 - Single Page Application & RESTful APIs ###
 
@@ -47,7 +47,7 @@ You can use the modern approach of making web sites and create a front-end which
 
 ### 2 - Generated pages using templating ###
 
-You can also follow the traditional approach of building web applications and generate the HTML pages in the back-end. If you follow that approach the HTML pages should follow templating rules.
+You can also follow the traditional approach of building web applications and generate the HTML pages in the back-end. If you follow that approach, the HTML pages should follow templating rules.
 
 
 ## RESTful APIs ##
@@ -77,7 +77,7 @@ To create a new item you have to do an HTTP POST to the following endpoint:
 POST http://localhost/api/items/
 ```
 
-and you have to spceify the `body` of the request as:
+and you have to specify the `body` of the request as:
 
 ```
 {
