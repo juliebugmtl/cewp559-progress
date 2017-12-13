@@ -117,3 +117,35 @@ function createNewItem() {
     });
 
 }
+
+function showNewUserForm() {
+    hideAllSections();
+    var htmlContainer = showSection('form_user_container');
+
+    document.getElementById("user_name").value = '';
+    document.getElementById("user_pass").value = '';
+    document.getElementById("user_email").value = '';
+    document.getElementById("user_admin").value = '';
+    document.getElementById("user_button").innerHTML = 'Create New User!';
+    document.getElementById("user_button").onclick = createNewUser;
+
+}
+
+function createNewUser() {
+    var name = document.getElementById("user_name").value;
+    var pass = document.getElementById("user_pass").value;
+    var email = document.getElementById("user_email").value;
+    var admin = document.getElementById("user_admin").value;
+    
+    var data = {
+        username: name,
+        password: pass,
+        email: email,
+        isAdmin: admin,
+    }
+
+    httpRequest('POST', '/users/', data, function (newRecord) {
+        console.log('Successful creation of new user', newRecord);
+            showSuccess('User Created Successfully!');
+        });
+}

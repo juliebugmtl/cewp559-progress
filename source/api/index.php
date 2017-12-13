@@ -89,12 +89,6 @@ try {
         } elseif ($method == 'PUT' && !empty($id)) {
             $userController->isAdmin($requestHeaders);
             $data = $controller->update($id, $requestJSON);
-
-        } elseif ($method == 'GET' && !empty($search_keyword)) {
-
-            $data = $controller->getSearch($search_keyword);
-
-        }
             
         } elseif ($method == 'DELETE' && !empty($id)) {
             // $controller->delete($id);
