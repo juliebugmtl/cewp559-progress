@@ -85,4 +85,9 @@ class ItemController
 
         return $this->model->getFilteredItems($categoryId);
     }
+
+    public function getSearchResults($search_keyword) {
+
+        
+    }
 }
