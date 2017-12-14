@@ -26,6 +26,7 @@ $api = strtok($baseURL, '/');
 $resource = strtok('/');
 $id = strtok('/');
 $subresource = strtok('/');
+$search = strtok($baseURL, '?');
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
@@ -82,14 +83,14 @@ try {
             
         } elseif ($method == 'GET' && $hasFilters) {
             $data = $controller->getAllWithFilters($filters);
-            
+
         } elseif ($method == 'GET') {
             $data = $controller->getAll();
             
         } elseif ($method == 'PUT' && !empty($id)) {
             $userController->isAdmin($requestHeaders);
             $data = $controller->update($id, $requestJSON);
-            
+
         } elseif ($method == 'DELETE' && !empty($id)) {
             // $controller->delete($id);
             // TODO: Remove this after implementing it

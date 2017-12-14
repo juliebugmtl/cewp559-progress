@@ -79,11 +79,29 @@ class ItemController
         $categoryId = $filters['categoryid'];
         $categoryId = intval($categoryId);
 
-        if ($categoryId == 0) {
-            throw new Exception('Invalid categoryid. ', 400);
+        $search = $filters['search'];
+
+        $query = sprintf( "SELECT name, description,
+        MATCH (name, description)
+        AGAINST ($search IN NATURAL LANGUAGE MODE)
+        AS score FROM items
+        WHERE MATCH (name, description) AGAINST
+        ($search IN NATURAL LANGUAGE MODE ");
+
+        $result = $this->db_connection->query($query);
+                
+        if (!$result) {
+            throw new Exception("Database error: {$this->db_connection->error}", 500);
+            }
+
+            return $this->getOne($insertedId);
         }
 
-        return $this->model->getFilteredItems($categoryId);
-    }
+    //     if ($categoryId == 0) {
+    //         throw new Exception('Invalid categoryid. ', 400);
+    //     }
+
+    //     return $this->model->getFilteredItems($categoryId);
+    // }
 
 }
