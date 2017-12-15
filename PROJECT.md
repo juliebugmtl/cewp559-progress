@@ -22,7 +22,7 @@ The final project should have the following sections:
     - [ ] (06%) Items Management:
         - [x] (02%) Create New item + image (partly: needs category ID)
         - [ ] (02%) Update an existing item
-        - [ ] (02%) Delete an exiting item
+        - [ ] (02%) Delete an existing item
     - [ ] (06%) Categories Management:
         - [ ] (02%) Create New category + image
         - [ ] (02%) Update an existing category

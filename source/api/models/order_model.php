@@ -32,8 +32,6 @@ class OrderModel extends BaseModel
 
         getUserByToken;
 
-        
-
         $orders = array();
         $query = "SELECT * from orders where userId = '$id')";
         $result = $this->db_connection->query($query);

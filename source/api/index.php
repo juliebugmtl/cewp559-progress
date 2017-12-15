@@ -11,7 +11,7 @@ error_log('API is starting!');
  *  POST http://localhost/api/items/4/image
  * the following piece of code work as below:
  * 
- * $pathparts will be an arrya of : array('items', '1', 'image')
+ * $pathparts will be an array of : array('items', '1', 'image')
  * where:
  * items: is the `resource`
  * 1: is the `id`
@@ -26,7 +26,6 @@ $api = strtok($baseURL, '/');
 $resource = strtok('/');
 $id = strtok('/');
 $subresource = strtok('/');
-$search = strtok($baseURL, '?');
 
 $method = $_SERVER['REQUEST_METHOD'];
 $requestBody = file_get_contents('php://input');
@@ -35,7 +34,6 @@ $requestHeaders = getallheaders();
 
 $filters = $_GET;
 $hasFilters = !empty($_GET);
-
 
 //
 // Database Connection
@@ -80,10 +78,14 @@ try {
             
         } elseif ($method == 'GET' && !empty($id)) {
             $data = $controller->getOne($id);
-            
+
+        } elseif ($method == 'GET' && !empty($filters['search'])) {
+            $search = $filters['search'];
+            $data = $controller->search($search);
+           
         } elseif ($method == 'GET' && $hasFilters) {
             $data = $controller->getAllWithFilters($filters);
-
+        
         } elseif ($method == 'GET') {
             $data = $controller->getAll();
             

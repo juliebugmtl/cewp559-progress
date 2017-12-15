@@ -18,6 +18,7 @@ class ItemModel extends BaseModel
     {
         // Using sprintf to format the query in a nicer way
         // Make sure to use HTML list values (loop through them to pull the values which are the categoryIds -- getListCategoryValues)
+
         $query = sprintf(
             "INSERT INTO items (name, price, description) VALUES ('%s', '%s', '%s')",
             $payload->name,
@@ -73,5 +74,22 @@ class ItemModel extends BaseModel
         $where_clause = "WHERE items_categories.categoryId = {$categoryId}";
 
         return $this->getFiltered($join_clause, $where_clause);
+    }
+
+    public function search($search) {
+
+        $query = sprintf( "SELECT name, description, MATCH (name, description) AGAINST ('$search' IN NATURAL LANGUAGE MODE)
+            AS score FROM items WHERE MATCH (name, description) AGAINST ('$search' IN NATURAL LANGUAGE MODE)");
+
+        error_log("search SQL: $query");
+
+        $result = $this->db_connection->query($query);
+ 
+        if (!$result) {
+            throw new Exception("Database error: {$this->db_connection->error}", 500);
+            }
+
+        $searchResults = $result->fetch_object();
+        return $searchResults;
     }
 }
