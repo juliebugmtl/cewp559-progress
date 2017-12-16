@@ -124,7 +124,6 @@ try {
         }
         break;        
 
-        // This endpoint is only available to logged-in users.
         case 'cart':
 
         $user = $userController->getUserByToken($requestHeaders);
@@ -175,7 +174,7 @@ try {
         $order_controller = new OrderController($order_model);
 
         if ($method == 'GET' ) {
-            $data = $order_controller->getAllOrders($user);
+            $data = $order_controller->getAllOrders($user->id);
         }
 
         break;

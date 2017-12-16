@@ -30,10 +30,8 @@ class OrderModel extends BaseModel
      */
     public function getAllOrders($userId) {
 
-        getUserByToken;
-
         $orders = array();
-        $query = "SELECT * from orders where userId = '$id')";
+        $query = "SELECT * from orders where userId = '$userId'";
         $result = $this->db_connection->query($query);
 
         error_log("Query for getAllOrders is: $query");
