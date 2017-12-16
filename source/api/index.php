@@ -106,8 +106,21 @@ try {
         
         if ($method == 'GET' && empty($id)) {
             $data = $controller->getAll();
+
+        } elseif ($method == 'POST' && !empty($id)) {
+            $data = $controller->updateCategory($id);
+
+        } elseif ($method == 'POST' && !empty($id) && $subresource == 'image') {
+            $data = $controller->upload($id, $_FILES['new_item_image']);
+            
+        } elseif ($method == 'POST') {
+            $userController->isAdmin($requestHeaders);
+            $data = $controller->createCategory($requestJSON);
+
+        } elseif ($method == 'DELETE' && !empty($id)) {
+            $controller->deleteCategory($id);
+            $userController->isAdmin($requestHeaders);
         }
-        
         break;
 
         case 'users':

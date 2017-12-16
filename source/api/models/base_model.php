@@ -106,7 +106,6 @@ class BaseModel
     public function create($payload)
     {
         
-        
         $fields = array();
         foreach ($payload as $field => $val) {
             $fields[] = "$field = '$val'";
