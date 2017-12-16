@@ -35,9 +35,7 @@ $requestHeaders = getallheaders();
 $filters = $_GET;
 $hasFilters = !empty($_GET);
 
-//
 // Database Connection
-//
 $dbhost = $_ENV['RDS_HOSTNAME'];
 $dbport = $_ENV['RDS_PORT'];
 $dbname = $_ENV['RDS_DB_NAME'];

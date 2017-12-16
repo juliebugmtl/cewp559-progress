@@ -11,8 +11,6 @@ class PaymentController {
     
     public function collect($payload) {
 
-        // var_dump($payload);
-
       $token  = $payload->stripeToken;
       $customer = \Stripe\Customer::create(array(
           'email' => $payload->email,

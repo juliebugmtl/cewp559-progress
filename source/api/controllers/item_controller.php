@@ -4,23 +4,19 @@ class ItemController
 {
     private $model;
 
-    public function __construct($model)
-    {
+    public function __construct($model) {
         $this->model = $model;
     }
 
-    public function getAll()
-    {
+    public function getAll() {
         return $this->model->getAll();
     }
 
-    public function getOne($id)
-    {
+    public function getOne($id) {
         return $this->model->getOne($id);
     }
 
-    public function create($payload)
-    {
+    public function create($payload) {
         // Validating the data inside the JSON
         // We make sure the `title` and `price` are provided
 
@@ -33,8 +29,7 @@ class ItemController
         return $this->model->create($payload);
     }
 
-    public function upload($id, $file)
-    {
+    public function upload($id, $file) {
         if ($file['error'] != 0) {
             throw new Exception('Error uploading a file: ' . $file['error'], 400);
         }
@@ -60,7 +55,7 @@ class ItemController
         
         $success = move_uploaded_file($file['tmp_name'], $finalFile);
         
-        if(!$success){
+        if(!$success) {
             throw new Exception('Error moving the file to images folder!', 500);
         }
 

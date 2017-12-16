@@ -10,8 +10,7 @@ class CategoryModel extends BaseModel
     protected $TableName = 'categories';
     protected $ModelName = 'CategoryModel';
 
-    public function createCategory($payload)
-    {
+    public function createCategory($payload) {
         
         $fields = array();
         foreach ($payload as $field => $val) {
@@ -33,8 +32,7 @@ class CategoryModel extends BaseModel
         return $insertedId;
     }
 
-   public function deleteCategory($id)
-    {
+   public function deleteCategory($id) {
  
         $query = sprintf(
             "DELETE FROM categories WHERE id = '$id'");
@@ -50,8 +48,7 @@ class CategoryModel extends BaseModel
         return;
     }
 
-    public function updateCategory($payload)
-    {
+    public function updateCategory($payload) {
         
         $fields = array();
         foreach ($payload as $field => $val) {

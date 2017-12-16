@@ -11,11 +11,8 @@ class ItemModel extends BaseModel
     protected $ModelName = 'ItemModel';
 
     
-    //
     // Save the payload as a new Item in to the Database
-    //
-    public function create($payload)
-    {
+    public function create($payload) {
         // Using sprintf to format the query in a nicer way
         // Make sure to use HTML list values (loop through them to pull the values which are the categoryIds -- getListCategoryValues)
 
@@ -36,8 +33,7 @@ class ItemModel extends BaseModel
         return $this->getOne($insertedId);
     }
 
-    public function update($id, $payload)
-    {
+    public function update($id, $payload) {
         // Using sprintf to format the query in a nicer way
         $query = sprintf(
             "UPDATE items SET name = '%s' , description = '%s', price = '%s' WHERE id = %d",
@@ -61,8 +57,7 @@ class ItemModel extends BaseModel
     /**
      * Updates the filename info for the specified item
      */
-    public function updateImage($id, $filename) 
-    {
+    public function updateImage($id, $filename) {
         return $this->updateFieldById($id, 'image', $filename);
     }
 
@@ -89,8 +84,7 @@ class ItemModel extends BaseModel
         return $results;
     }
 
-   public function deleteItem($id)
-    {
+   public function deleteItem($id) {
  
         $query = sprintf(
             "DELETE FROM items WHERE id = '$id'");

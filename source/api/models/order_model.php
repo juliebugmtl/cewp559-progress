@@ -47,6 +47,4 @@ class OrderModel extends BaseModel
         return $orders;
     }
 
-
-
 }

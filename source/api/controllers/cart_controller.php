@@ -22,7 +22,6 @@ class CartController
 
     }
 
-
     public function getCart($userId) {
 
         $items = $this->model->getCartItems($userId);

@@ -9,8 +9,7 @@ class UserController
         $this->model = $model;
     }
 
-    public function create($payload)
-    {
+    public function create($payload) {
         if (!array_key_exists('username', $payload)) {
             throw new Exception('`username` should be provided!');
         } elseif (!array_key_exists('password', $payload)) {
@@ -23,8 +22,7 @@ class UserController
     }
 
 
-    public function login($payload)
-    {
+    public function login($payload) {
         if (!array_key_exists('username', $payload)) {
             throw new Exception('`username` should be provided!');
         } elseif (!array_key_exists('password', $payload)) {
@@ -33,8 +31,7 @@ class UserController
 
         $user = $this->model->getUserByUsername($payload->username);
         
-        if (!password_verify($payload->password, $user->password))
-        {
+        if (!password_verify($payload->password, $user->password)) {
             throw new Exception("Invalid username or password!", 401);
         }
 
@@ -45,13 +42,11 @@ class UserController
         return array('token' => $token, 'isAdmin' => $user->isAdmin);
     }
 
-    public function verify($headers){
+    public function verify($headers) {
 
         if (!array_key_exists('Authorization', $headers)) {
             throw new Exception('`Authorization` should be provided!');
         }
-
-        // "Bearer 16f684f01e6296da3a8364e597a236726d21a38a953cec28a120816115261c2736a86be219124c29a273f7a11d3069bd6572940c1b1f248434f002c9de7d29f6"
 
         $token = explode(' ', $headers['Authorization'])[1];
 
@@ -83,12 +78,4 @@ class UserController
         return $this->model->getUserByToken($token);
     }
 
-
-    // public function getUserById($headers) {
-    //     $this->verify($headers);
-
-    //     $token = explode(' ', $headers['Authorization'])[1];
-
-    //     return $this->model->getUserById($userId);
-    // }
 }

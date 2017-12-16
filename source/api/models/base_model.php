@@ -19,8 +19,7 @@ class BaseModel
     // Holds the connection to the database
     protected $db_connection;
     
-    function __construct($connection = null)
-    {
+    function __construct($connection = null) {
         if (!empty($connection)) {
             $this->db_connection = $connection;
         }
@@ -30,8 +29,7 @@ class BaseModel
     /**
      * getFiltered will retrieve all the records from the database from $TableName based on the JOIN clause and WHERE Clause specified
      */
-    public function getFiltered($join_clause = '', $where_clause = '')
-    {
+    public function getFiltered($join_clause = '', $where_clause = '') {
         $items = array();
         $query = "SELECT * FROM {$this->TableName} {$join_clause} {$where_clause}";
 
@@ -53,8 +51,7 @@ class BaseModel
     /**
      * getAll will retrieve all the records from the databse from $TableName
      */
-    public function getAll()
-    {
+    public function getAll() {
         $items = array();
         $query = "SELECT * FROM {$this->TableName}";
         $result = $this->db_connection->query($query);
@@ -77,8 +74,7 @@ class BaseModel
      *
      * @param int $id id of the record to be fetched from the databse
      */
-    public function getOne($id)
-    {
+    public function getOne($id) {
         $query = "SELECT * FROM {$this->TableName}  WHERE id = $id";
         $result = $this->db_connection->query($query);
         
@@ -103,8 +99,7 @@ class BaseModel
      *
      * @param object payload The info for the new record to be inserted in to the $TableName
      */
-    public function create($payload)
-    {
+    public function create($payload) {
         
         $fields = array();
         foreach ($payload as $field => $val) {
@@ -126,10 +121,7 @@ class BaseModel
         return $this->getOne($insertedId);
     }
 
-    // TODO: Update the code here to accomodate `delete`
-
-    protected function updateFieldById($id, $field, $value)
-    {
+    protected function updateFieldById($id, $field, $value) {
         $query = "UPDATE {$this->TableName} SET {$field} = '{$value}' WHERE id = $id";
         $result = $this->db_connection->query($query);
         

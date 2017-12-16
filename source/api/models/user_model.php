@@ -10,8 +10,7 @@ class UserModel extends BaseModel
     protected $TableName = 'users';
     protected $ModelName = 'UserModel';
 
-    public function getUserByUsername($username) 
-    {
+    public function getUserByUsername($username) {
         $query = "SELECT * FROM {$this->TableName}  WHERE username = '$username' ";
         $result = $this->db_connection->query($query);
 
@@ -29,8 +28,7 @@ class UserModel extends BaseModel
     }
 
 
-    public function getUserByToken($token) 
-    {
+    public function getUserByToken($token) {
         // Avoid * to improve performance. Select from the specific fields.
         $query = "SELECT users.id, users.username, users.isAdmin, tokens.token FROM users JOIN tokens ON users.id = tokens.userID WHERE token = '$token' ";
         $result = $this->db_connection->query($query);
@@ -48,7 +46,7 @@ class UserModel extends BaseModel
         return $result->fetch_object($this->ModelName);
     }
 
-    public function storeToken($userId, $token){
+    public function storeToken($userId, $token) {
     	$now = date("Y-m-d H:i:s");
 		$twoHours = date("Y-m-d H:i:s", strtotime('+2 hours'));
 

@@ -23,7 +23,6 @@ class CartModel extends BaseModel
 
     }
 
-
     public function getCartItems($userId) {
     	// Raw query should be SELECT * FROM cart JOIN items ON cart.itemId = items.id WHERE userId = $userId
 
@@ -54,7 +53,6 @@ class CartModel extends BaseModel
 
         return round($cart->total, 2);
 
-
     }
 
     public function emptyCart($userId) {
@@ -70,6 +68,5 @@ class CartModel extends BaseModel
         }
 
     }
-
 
 }

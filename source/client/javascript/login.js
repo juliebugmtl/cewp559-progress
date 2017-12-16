@@ -3,7 +3,7 @@
 //
 
 function showWelcome() {
-    document.getElementById("welcome_msg").innerHTML = `Welcome, ${user}!`;
+    document.getElementById("welcome_msg").innerHTML = "Welcome, " + document.getElementById("username").value + "!";
 }
 
 function showLoggedInUserMenus(){
