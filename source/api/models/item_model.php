@@ -84,8 +84,8 @@ class ItemModel extends BaseModel
         error_log("search SQL: $query");
 
         $result = $this->db_connection->query($query);
- 
         $results = $result->fetch_object($this->ModelName);
+ 
         return $results;
     }
 }

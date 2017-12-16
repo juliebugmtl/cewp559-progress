@@ -17,7 +17,7 @@ The final project should have the following sections:
 - [x] (10%) Orders - Stored in DB in `Orders` and `OrderItems` tables (Logged in User only)
 - [x] (10%) Payment gateway integration (Logged in User only)
 - [x] (15%) User Authentication
-- [ ] (10%) Search items - Full Text
+- [x] (10%) Search items - Full Text (API only)
 - [ ] (15%) Administration (Only Admin can access it)
     - [ ] (06%) Items Management:
         - [x] (02%) Create New item + image (partly: needs category ID)
