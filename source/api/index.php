@@ -94,10 +94,8 @@ try {
             $data = $controller->update($id, $requestJSON);
 
         } elseif ($method == 'DELETE' && !empty($id)) {
-            // $controller->delete($id);
-            // TODO: Remove this after implementing it
-            // $userController->isAdmin($requestHeaders);
-            throw new Exception('Handler for DELETE method has NOT been implemented yet!', 501); // 501: Not Implemented!
+            $controller->deleteItem($id);
+            $userController->isAdmin($requestHeaders);
         }
         
         break;

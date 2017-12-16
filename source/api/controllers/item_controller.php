@@ -95,4 +95,14 @@ class ItemController
         return $this->model->searchItems($search);
     }
 
+    public function deleteItem($id) {
+
+        if (!$id) {
+            throw new Exception('Invalid item ID. ', 400);    
+        }
+
+        return $this->model->deleteItem($id);
+
+    }
+
 }

@@ -88,4 +88,22 @@ class ItemModel extends BaseModel
  
         return $results;
     }
+
+   public function deleteItem($id)
+    {
+ 
+        $query = sprintf(
+            "DELETE FROM items WHERE id = '$id'");
+
+        error_log("DELETE query: $query");
+
+        $result = $this->db_connection->query($query);
+        
+        if (!$result) {
+            throw new Exception("Database error: {$this->db_connection->error}", 500);
+        }
+
+        return;
+    }
+
 }
