@@ -20,8 +20,10 @@ class CategoryController
         return $this->model->deleteCategory($id);
     }
 
-    public function updateCategory($id) {
-        return $this->model->updateCategory($id);
-    }
+    // Unable to get updateCategory to work. -- JM
+    //
+    // public function updateCategory($requestJSON) {
+    //     return $this->model->updateCategory($id, $payload);
+    // }
 
 }

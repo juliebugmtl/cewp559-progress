@@ -48,28 +48,31 @@ class CategoryModel extends BaseModel
         return;
     }
 
-    public function updateCategory($payload) {
+    // Unable to get updateCategory to work. -- JM
+    //
+    //
+    // public function updateCategory($requstJSON) {
         
-        $fields = array();
-        foreach ($payload as $field => $val) {
-            $fields[] = "$field = '$val'";
-        }
+    //     $fields = array();
+    //     foreach ($payload as $field => $val) {
+    //         $fields[] = "$field = '$val'";
+    //     }
 
-        var_dump($fields);
+    //     var_dump($fields);
 
-        $setStatement = implode(', ', $fields);
-        $query = "UPDATE categories SET $setStatement";
+    //     $setStatement = implode(', ', $fields);
+    //     $query = "UPDATE categories SET $setStatement";
 
-        error_log("Insert SQL: $query");
+    //     error_log("Insert SQL: $query");
 
-        $result = $this->db_connection->query($query);
+    //     $result = $this->db_connection->query($query);
         
-        if (!$result) {
-            throw new Exception("Database error: {$this->db_connection->error}", 500);
-        }
+    //     if (!$result) {
+    //         throw new Exception("Database error: {$this->db_connection->error}", 500);
+    //     }
         
-        $updatedId = $this->db_connection->update_id;
-        return $updatedId;
-    }
+    //     $updatedId = $this->db_connection->update_id;
+    //     return $updatedId;
+    // }
 
 }

@@ -105,8 +105,11 @@ try {
         if ($method == 'GET' && empty($id)) {
             $data = $controller->getAll();
 
-        } elseif ($method == 'POST' && !empty($id)) {
-            $data = $controller->updateCategory($id);
+        // Unable to get updateCategory to work. -- JM
+        //
+        // } elseif ($method == 'POST' && !empty($id)) {
+        //     $userController->isAdmin($requestHeaders);
+        //     $data = $controller->updateCategory($requestJSON);
 
         } elseif ($method == 'POST' && !empty($id) && $subresource == 'image') {
             $data = $controller->upload($id, $_FILES['new_item_image']);
