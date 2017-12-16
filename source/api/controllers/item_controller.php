@@ -86,15 +86,13 @@ class ItemController
         return $this->model->getFilteredItems($categoryId);
     }
 
-    public function search($search) {
+    public function searchItems($search) {
 
-        //var_dump($search);
+        if (!$search) {
+            throw new Exception('Invalid search request. ', 400);
+        }
 
-        // if ($search == 0) {
-        //     throw new Exception('Invalid search request. ', 400);
-        // }
-
-        return $this->model->search($searchResults);
+        return $this->model->searchItems($search);
     }
 
 }

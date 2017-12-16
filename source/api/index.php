@@ -81,7 +81,7 @@ try {
 
         } elseif ($method == 'GET' && !empty($filters['search'])) {
             $search = $filters['search'];
-            $data = $controller->search($search);
+            $data = $controller->searchItems($search);
            
         } elseif ($method == 'GET' && $hasFilters) {
             $data = $controller->getAllWithFilters($filters);

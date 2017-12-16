@@ -14,12 +14,4 @@ class CategoryController
         return $this->model->getAll();
     }
 
-    /**
-     * TODO: 
-     * 
-     * You can add the rest of the functionality for the Controller HERE
-     * OR
-     * You can move the basic functionality to a `BaseController` class and extend the current class from that
-     * 
-     */
 }

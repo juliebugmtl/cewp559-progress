@@ -76,7 +76,7 @@ class ItemModel extends BaseModel
         return $this->getFiltered($join_clause, $where_clause);
     }
 
-    public function search($search) {
+    public function searchItems($search) {
 
         $query = sprintf( "SELECT name, description, MATCH (name, description) AGAINST ('$search' IN NATURAL LANGUAGE MODE)
             AS score FROM items WHERE MATCH (name, description) AGAINST ('$search' IN NATURAL LANGUAGE MODE)");
@@ -85,11 +85,7 @@ class ItemModel extends BaseModel
 
         $result = $this->db_connection->query($query);
  
-        if (!$result) {
-            throw new Exception("Database error: {$this->db_connection->error}", 500);
-            }
-
-        $searchResults = $result->fetch_object();
-        return $searchResults;
+        $results = $result->fetch_object($this->ModelName);
+        return $results;
     }
 }
