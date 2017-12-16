@@ -31,7 +31,7 @@ The final project should have the following sections:
 - [ ] (10%) Unit-Tests, 10% code coverage for all Controllers and Models
 - Front-End: Is described below
 - Bonuses:
-- [ ] (05%) Orders History (optional) (Logged in User only)
+- [x] (05%) Orders History (optional) (Logged in User only)
 - [ ] (05%) Read Reviews for an item (_Optional = Bonus_)
 - [ ] (05%) Add Reviews for an item (_Optional = Bonus_)
 - [ ] (20%) Unit-Tests, above 50% code coverage for all Controllers and Models (_Optional = Bonus_)
